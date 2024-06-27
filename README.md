@@ -1,0 +1,1 @@
+# The templating of airbnb is completed.
