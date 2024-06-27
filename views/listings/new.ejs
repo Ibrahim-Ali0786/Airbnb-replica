@@ -1,0 +1,19 @@
+<% layout('/layouts/boilerplate') %>
+<link rel="stylesheet" href="/css/new/style.css">
+<body>
+    <form action="/listings/new" method="post">
+        <input type="text" name="listing[title]" id="" required placeholder="title">
+        <br><br>
+        <textarea name="listing[description]" id="" cols="50" rows="5" placeholder="Your hotel description here"></textarea>
+        <br><br>
+        <input type="text" name="listing[image][url]" placeholder="enter image URL">
+        <br><br>
+        <input type="number" name="listing[price]" id="" placeholder="price" required>
+        <br><br>
+        <input type="text" name="listing[location]" id="" placeholder="location">
+        <br><br>
+        <input type="text" name="listing[country]" id="" placeholder="country" required>
+        <br><br>
+        <button class="btn">Submit</button>
+    </form>
+</body>

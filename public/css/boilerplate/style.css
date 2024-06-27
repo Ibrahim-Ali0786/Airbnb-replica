@@ -1,0 +1,38 @@
+
+.nav-link{
+    color: #222222 !important;
+
+}
+.navbar{
+    background-color: white;
+    height: 5rem;
+}
+.fa-solid{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 8rem;
+    background-color: #efefef;
+    text-align: center;
+}
+.f-info-social i{
+    font-size: 1.2rem; 
+    margin-right: 1rem;
+}
+.f-info-links,.f-info-social,.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

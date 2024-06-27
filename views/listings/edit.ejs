@@ -1,0 +1,19 @@
+<% layout('/layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/css/edit/style.css">
+<body>
+    <form action="/listings/<%=list._id %>?_method=PUT" method="post">
+        <input type="text" name="listing[title]" id="" value="<%=list.title %>">
+        <br><br>
+        <textarea name="listing[description]" rows="5" cols="50"><%=list.description%></textarea>
+        <br><br>
+        <input type="number" name="listing[price]" id="" value="<%=list.price %>">
+        <br><br>
+        <input type="text" name="listing[image][url]" value="<%=list.image.url %>">
+        <br><br>
+        <input type="text" name="listing[location]" id="" value="<%=list.location %>">
+        <br><br>
+        <input type="text" name="listing[country]" id="" value="<%=list.country %>">
+        <br><br>
+        <button class="btn">Submit</button>
+    </form>
+</body>

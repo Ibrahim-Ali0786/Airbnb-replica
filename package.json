@@ -15,5 +15,12 @@
     "url": "https://github.com/Ibrahim-Ali0786/Airbnb-replica/issues"
   },
   "homepage": "https://github.com/Ibrahim-Ali0786/Airbnb-replica#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.19.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.4.1"
+  }
 }

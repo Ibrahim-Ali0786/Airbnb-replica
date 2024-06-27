@@ -1,0 +1,18 @@
+<% layout('/layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/css/show/style.css">
+<body>
+    <ul>
+        <li><%=list.title %></li>
+        <li><%=list.description %></li>
+        <li> &#8377 <%=list.price.toLocaleString("en-IN") %></li>
+        <li><a href="<%=list.image.url%>"><%=list.image.url%></a></li>
+        <li><%=list.location %></li>
+        <li><%=list.country %></li>
+    </ul>
+    <div class="btns">
+        <a class="ancor" href="/listings/<%=list._id%>/edit">Edit this Listing</a>
+        <form action="/listings/<%=list._id%>?_method=Delete" method="post">
+            <button class="btn">Delete this Listing</button>
+        </form>
+    </div>
+</body>
