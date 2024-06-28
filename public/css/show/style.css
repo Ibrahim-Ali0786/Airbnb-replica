@@ -1,32 +1,22 @@
-.ancor{
-    margin-left: 25px;
-    text-decoration: none;
-    border: 1.5px solid #0d6efd;
-    padding: 1.5px 6px;
-    border-radius: 5px;
-    color: #0d6efd;
-    font-size: 15px;
-    font-family: system-ui, -apple-system;
-    font-weight: 450;
+.btn-masher{
+    border: none;
+    background-color: #fe424d;
+    margin-right: 5px;
 }
-.ancor:hover{
-    background-color: #0d6efd;
-    color: white;
+.show-img{
+    height: 35vh;
+    border-radius: 1rem;
 }
-.btn:hover{
-    background-color: #0d6efd;
-    color: white;
+.card{
+    border: none;
 }
 .btns{
-    display: flex;
+    margin: 0 30px 0 15px;
 }
-.btn{
-    margin-left: 15px;
-    border: 1.5px solid #0d6efd;
-    padding: 1.5px 8px;
-    border-radius: 5px;
-    color: #0d6efd;
-    font-size: 15px;
-    font-family: system-ui, -apple-system;
-    font-weight: 450;
+.text{
+    text-transform: capitalize;
+}
+.head{
+    font-weight: 550;
+    text-transform: capitalize;
 }

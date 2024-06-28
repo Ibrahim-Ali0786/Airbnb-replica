@@ -1,6 +1,4 @@
-body{
-    font-family: "Plus Jakarta Sans", sans-serif;
-}
+
 .btn{
     border-radius: 8px;
     border: 1px solid #0d6efd;
@@ -13,26 +11,9 @@ body{
     background-color: #0d6efd;
     color: white;
 }
-h3{
-    margin-left: 30px;
-}
-ul{
-    margin-left: 30px ;
-}
-li
-{
-    color: grey;
-}
-.ancor  {
-    color: #20b2aa;
-    text-decoration: none;
-}
 .card{
     border: none;
     margin-bottom: 2rem;
-}
-.row{
-    margin-left: 1rem;
 }
 .card-img-top{
     border-radius: 1rem;
@@ -44,4 +25,14 @@ li
 }
 .card-text p{
     font-weight: 400 !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
 }
