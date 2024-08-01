@@ -1,37 +1,111 @@
 <% layout('/layouts/boilerplate.ejs') %>
 <link rel="stylesheet" href="/css/show/style.css">
-<body>
-    <div class="row mt-3">
-            <div class="col-8 offset-5">
-                <h3 class="head">listing details:</h3>
-            </div>
+<script>
+    const coordinate = <%- JSON.stringify( coordinates) %>;
+    const list = `<%= list.title%>`;
+</script>
+    <div class="row mt-3 mb-5">
+            <div class="col-8 offset-3">
+                <h3 class="head"><b><%=list.title %></b></h3>
+            </div>  
     
-            <div class="card col-6 offset-3">
+            <div class="card card-listing-top col-6 offset-3">
                 <img src="<%=list.image.url %>" class="card-img-top show-img" alt="listing_image">
                 <div class="card-body">
-                    <h5 class="card-title text"><b><%=list.title %></b></h5>
-                    <p class="card-text text"><%=list.description %>
-                        <br>
-                      Price : &#8377 <%=list.price.toLocaleString("en-IN") %>
-                        <br>
-                      <b >location</b> : <%=list.location %>
-                        <br>
-                       <b>country</b> : <%=list.country %>
-                    </p>
+                    <p class="card-text text"><i>Owned By : <%=list.owner.username%></i> </p>
+                    <p class="card-text text"><%=list.description %></p> 
+                    <p class="card-text text">&#x20B9;<%=list.price.toLocaleString("en-IN")%></p>
+                    <p class="card-text text"><b >location</b> : <%=list.location %></p>
+                    <p class="card-text text"><b>country</b> : <%=list.country %></p>
                 </div> 
+                <% if(CurrUser && CurrUser._id.equals(list.owner._id)) {%>     
+                    <div class="row mb-2">
+                        <div class="col-1 btns">
+                            <a class="btn btn-dark btn-masher" href="/listings/<%=list._id%>/edit" class="btn btn-primary">Edit</a>
+                        </div>
+                        <div class="col btns">
+                            <form action="/listings/<%=list._id%>?_method=Delete" method="post">
+                                <button class="btn btn-dark btn-masher ">Delete</button>
+                            </form>
 
-                <div class="row mb-5">
-                    <div class="col-1 btns">
-                        <a class="btn btn-dark btn-masher" href="/listings/<%=list._id%>/edit" class="btn btn-primary">Edit</a>
+                        </div>
                     </div>
-                    <div class="col btns">
-                        <form action="/listings/<%=list._id%>?_method=Delete" method="post">
-                            <button class="btn btn-dark btn-masher ">Delete</button>
-                         </form>
+                <% } %>
+                <hr>
+            </div>
+            <div class="col-8 offset-3">
+                <%if(CurrUser) {%>
+                <h4><b>Leave a Review</b></h4>
+                <form class="needs-validation" novalidate action="/listings/<%=list._id%>/reviews" method="POST">
+                    <!-- <div class="mt-2 mb-3">
+                        <label class="form-label" for="rating"><b>Rate</b></label>
+                        <input class="form-range" max="5" min="1" type="range" name="review[rating]" id="rating">
+                        <div class="valid-feedback">looks good!</div>
+                    </div> -->
+                    <div class="mt-2 mb-3">
+                        <label class="form-label" for="rating"><b>Rating:</b></label>
+                        <fieldset  class="starability-grow">
+                            <input type="radio" id="no-rate rating" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                            <input  type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                            <div class="invalid-feedback">Rating cannot be 0</div>
+                            <div class="valid-feedback">looks good!</div>
+                        </fieldset>
                     </div>
+                    <div class="mt-2 mb-3">
+                        <label class="form-label" for="comment"><B>Comment</B></label>
+                        <textarea class="form-control"  name="review[comment]" id="comment" placeholder="Write your Review here" rows="5" cols="50" required></textarea>
+                        <div class="valid-feedback">looks good!</div>
+                        <div class="invalid-feedback">comment is must</div>
+                    </div>
+                    <div class="mt-2 offset-5">
+                        <button class="btn btn-outline-dark">submit</button>  
+                    </div>
+                    <hr>
+                </form>
+                <% } %> 
+                <% if(list.reviews.length>0) {%>
+                <h4><b>All Review</b></h4>
+                <div class="row">
+                    <% for(review of list.reviews) {%>
+                         <div class="card card-listing col-5 mb-3 ms-3">
+                             <div class="card-body">
+                                <% if(list.owner._id.equals(review.author._id)) {%>
+                                 <h5 class="card-title "><%=review.author.username%></h5>
+                                 <p class="ms-auto"><b>owner</b></p>
+                                 <p class="starability-result card-text" data-rating="<%=review.rating %>"></p>
+                                 <p class="card-text"><%=review.comment%></p>
+                                 <% } else { %>
+                                 <h5 class="card-title"><%=review.author.username %></h5>
+                                 <p class="starability-result card-text" data-rating="<%=review.rating %>"></p>
+                                 <p class="card-text"><%=review.comment%></p>
+                                 <% } %>
+                               </div>
+                               <form class="mb-3" action="/listings/<%=list._id%>/reviews/<%=review._id%>?_method=Delete" method="post">
+                                <% if(CurrUser && CurrUser._id.equals(review.author._id)) { %>
+                                <button class="btn btn-sm btn-dark ms-2">Delete</button>
+                                <% } %>
+                               </form>
+                         </div>
+                     <% } %>
                 </div>
-            
-            </div>    
+            <% } %>
+            <div class="mt-5 mb-3">
+                <h3>Where you'll be</h3>
+                <div id="map"></div>
+                  <script
+                        async src="https://maps.googleapis.com/maps/api/js?key=<%=maptoken %>&callback=initMap&v=weekly&solution_channel=GMP_CCS_simpleclickevents_v2"
+                            defer
+                    ></script>
+                </div>
+            </div> 
     </div>
-   
-</body>
+    <script src="/js/map.js"></script>

@@ -7,7 +7,7 @@
     height: 35vh;
     border-radius: 1rem;
 }
-.card{
+.card-listing-top{
     border: none;
 }
 .btns{
@@ -20,3 +20,14 @@
     font-weight: 550;
     text-transform: capitalize;
 }
+body
+{
+   font-family: "Plus Jakarta Sans", sans-serif;
+}
+#map{
+    height: 50vh;
+    width: 100%;
+}
+
+ 
+  

@@ -3,10 +3,265 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-<body>
     <!-- <form action="/listings/new">
         <button class="btn">Create new listing</button>
     </form> -->
+    <style>
+        #filters{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .icons-container{
+            width: 68%;
+        
+        }
+       
+        .filter{
+            opacity: 0.7;
+            margin-top: 1rem;
+            margin-right: 2rem;
+            text-align: center;
+        }
+        .filter  p{
+            font-size: 0.8rem;
+        }
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .tax-toggle
+        {
+          display: flex;
+          align-items: center;
+          border-radius: 1rem;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          height: 3rem;
+          padding: 1rem;
+          margin-left: 1rem;
+        }
+        .tax-toggle:hover{
+            cursor: pointer;
+            border:1px solid black;
+            background-color: rgba(247, 232, 232, 0.3);
+        }
+        .tax-rate{
+            display: none;
+        }
+        .scroll-btn{
+            display: flex;
+            opacity: 0.7;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgb(150, 146, 146);
+            height: 30px;
+            width: 30px;
+            padding: 0.5rem;
+            border-radius: 50%;
+        }
+        .scroll-btn:hover
+        {
+            box-shadow: 0px 4px 14px rgb(150, 146, 146);
+        }
+        .filter-icons{
+          display: flex;
+          margin-right: 0px;
+          overflow: scroll;
+          scroll-behavior: smooth;
+        }
+        .filter-icons::-webkit-scrollbar {
+            display: none;
+        }
+        .tax-holder
+        {
+            display: flex;
+              align-items: center;
+           width: 32%;
+         
+        }
+        .tax-holder:hover{
+            cursor: pointer;
+        }
+        .filter-btn
+        {
+            text-align: center;
+            border: none;
+            background-color: transparent;
+        }
+        .filter-btn i {
+            font-size: 1rem;
+           
+        }
+        .scroll-btn-left{
+            display:none;
+        }
+        .filter-search{
+            display: flex;
+            align-items: center;
+            margin-left: 2rem;
+            height: 3rem;
+            border: 1px solid black;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .filter-search:hover{
+            border: 1px solid black;
+            background-color: rgba(247, 232, 232, 0.3);
+        }
+        .filter-search i {
+         display: inline-flex;
+         flex-wrap: wrap;
+         align-items: center;
+         font-size: 0.95rem;
+         margin-right: 0.5rem;  
+        }
+      .dropdown-menu{
+        width: 400px;
+        border-radius: 0.75rem;
+      }
+      .card-filter-image
+      {
+        height: 100px;
+        width: 100px;
+        border-radius: 1rem,; 
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+     .dropdown-item:active{
+        background-color: transparent;
+     }
+    
+    </style>
+    <div id="filters">
+        <div class="icons-container" style="display: flex; align-items: center;">
+            <div class="scroll-btn scroll-btn-left"><button class="filter-btn"><i class="fa-solid fa-chevron-left"></i></button></div>
+            <div class="filter-icons">
+                <div class="filter ">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trending</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-anchor"></i></div>
+                    <p>Boats</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-wheat-awn"></i></div>
+                    <p>Farms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    <p>Rooms</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-igloo"></i></div>
+                    <p>Cabins</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-sun"></i></div>
+                    <p>Mountains</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-brands fa-fort-awesome"></i></div>
+                    <p>Mansions</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <p>Beach</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-box"></i></div>
+                    <p>Container</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-caravan"></i></div>
+                    <p>Campervan</p>
+                </div>
+            </div>
+            <div id="scroll-right" class="scroll-btn scroll-btn-right"><button class="filter-btn"><i class="fa-solid fa-chevron-right"></i></button></div>
+        </div>
+       <div class="tax-holder">
+                <div class="dropdown">
+                    <div  class="filter-search dropdown-toggle" id="dropdownMenuLink" data-bs-toggle="dropdown"><i class="fa-solid fa-sliders"></i>Filters</div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li class="dropdown-item"><b>Search by region</b></li>
+                        <li><a class="dropdown-item" href="/">
+                            <div class="card">
+                                <img src="https://img.freepik.com/free-vector/map-asia-flat-style_23-2147798735.jpg?w=740&t=st=1722514272~exp=1722514872~hmac=afdf7c893d8bd8fb3162018160cbd3868dba629c8f8b07496e9670cad4cab30e" class="card-img-top card-filter-image" alt="">
+                                <div class="card-body ms-2 mt-1">
+                                  <h5 class="card-title">Asia</h5>
+                                </div>
+                        </a></li>
+                        <li><a class="dropdown-item" href="#"><div class="card">
+                            <img src="https://img.freepik.com/free-vector/minimal-world-map-isolated-white-background-with-shadow_1017-42608.jpg?t=st=1722515355~exp=1722518955~hmac=1d88347731751a5c19180ac1dae77346a028ce115d5a3c7eda54bffb59b2d018&w=1060" class="card-img-top card-filter-image" alt="">
+                            <div class="card-body ms-2 mt-1">
+                              <h5 class="card-title">Europe</h5>
+                            </div></a></li>
+                        <li><a class="dropdown-item" href="#"><div class="card">
+                            <img src="https://img.freepik.com/free-vector/iran-map-infographics_23-2148854660.jpg?t=st=1722516302~exp=1722519902~hmac=95b320cc778e610c4ecf90206f2a3c5a439d3201d603afb8475dd82144b24dbf&w=996" class="card-img-top card-filter-image" alt="">
+                            <div class="card-body ms-2 mt-1">
+                              <h5 class="card-title">Arabs</h5>
+                            </div></a></li>
+                </div>
+            <div class="tax-toggle">
+                <div class="form-check form-switch form-check-reverse">
+                    <input style="cursor: pointer;" class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+                    <label style="cursor: pointer;" class="form-check-label" for="flexSwitchCheckReverse">Display total after taxes</label>
+                </div>
+            </div>
+       </div>
+    </div>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
         <% for(list of lists){ %>
         <a class="listing-link" href="/listings/<%=list._id%>">
@@ -17,10 +272,59 @@
                     <p class="card-text">
                     <b> <%=list.title %> </b> <br>
                         &#8377 <%=list.price.toLocaleString("en-IN")%> / night
+                        <i class="tax-rate"> &nbsp;+18% GST</i>
                     </p>
                 </div>
             </div>
         </a>
         <% } %>
     </div>
-</body>
+    <script>
+        let texSwitch = document.getElementById('flexSwitchCheckReverse');
+        texSwitch.addEventListener('click',()=>{
+            let taxes = document.getElementsByClassName('tax-rate');
+           
+            for(tax of taxes)
+            {
+                if(tax.style.display!='inline')
+                {
+                    tax.style.display='inline';
+                }
+                else
+                {
+                    tax.style.display='none';
+                }
+            }
+        })
+        let rightScroll = document.getElementById('scroll-right');
+        let leftScroll = document.getElementsByClassName('scroll-btn-left');
+        let filter = document.getElementsByClassName('filter-icons');
+        filter[0].addEventListener('scroll',()=>{
+            if(filter[0].scrollLeft!=0)
+                {
+                    leftScroll[0].style.display='inline-flex'
+                }
+                else
+                {
+                    leftScroll[0].style.display='none'
+                }
+        })
+        rightScroll.addEventListener('click',()=>{
+            console.log(filter[0].scrollLeft);
+            filter[0].scrollLeft+=800;
+            leftScroll[0].style.display='inline-flex';
+        })
+        leftScroll[0].addEventListener('click',()=>{
+            if(filter[0].scrollLeft!=800)
+            {
+                filter[0].scrollLeft-=800;
+                console.log(filter[0].scrollLeft)
+            }
+            else
+            {
+                filter[0].scrollLeft-=800;
+                leftScroll[0].style.display='none';
+            }
+            
+        })
+    </script>

@@ -4,33 +4,44 @@
     <div class="row mt-3">
         <div class="col-8 offset-2">
             <!-- <br><br> -->
-            <h3 style="text-align: center; font-weight: 560; text-transform: capitalize;">Create new listings</h3>
-            <form action="/listings/new" method="post">
+            <a href="/listings/new" style="text-decoration: none; color: black;"><h3 style="text-align: center; font-weight: 560; text-transform: capitalize;">Create new listings</h3></a>
+            <form class="needs-validation" novalidate action="http://localhost:8080/listings" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label"><b>Title</b></label>
-                    <input type="text" name="listing[title]" id="title" required placeholder="Enter a catch title" class="form-control">
+                    <input type="text" name="listing[title]" id="title" placeholder="Enter a catch title" class="form-control" required>
+                    <div class="valid-feedback">looks good!</div>
+                    <div class="invalid-feedback">Title is required</div>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label"><b>Description</b></label>
-                    <textarea class="form-control" name="listing[description]" id="description" placeholder="message"></textarea>
+                    <textarea class="form-control" name="listing[description]" id="description" placeholder="message" required></textarea>
+                    <div class="valid-feedback">looks good!</div>
+                    <div class="invalid-feedback">Description is must</div>
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-label"><b>Image Link</b></label>
-                    <input type="text" name="listing[image][url]" placeholder="enter image URL/link" id="image" class="form-control">
+                    <label for="image" class="form-label"><b>Upload Image</b></label>
+                    <input type="file" name="listing[image]"  placeholder="enter image URL/link" id="image" class="form-control" multiple >
+                    <div class="valid-feedback">looks good!</div>
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label"><b>Price</b></label>
                         <input class="form-control" type="number" name="listing[price]" id="price" placeholder="12000" required>
+                        <div class="valid-feedback">looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid price</div>
                     </div>
                     <div class="mb-3 col-md-4">
                         <label for="country" class="form-label"><b>country</b></label>
                         <input class="form-control" type="text" name="listing[country]" id="country" placeholder="India" required>
+                        <div class="valid-feedback">looks good!</div>
+                        <div class="invalid-feedback">Please enter a valid country</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label"><b>location</b></label>
-                    <input class="form-control" type="text" name="listing[location]" id="location" placeholder="Ujjain">
+                    <input class="form-control" type="text" name="listing[location]" id="location" placeholder="Ujjain" required>
+                    <div class="valid-feedback">looks good!</div>
+                    <div class="invalid-feedback">Please enter a valid location</div>
                 </div>
                     <button class="btn btn-dark btn-add offset-5">Add</button>
                 <br><br>
