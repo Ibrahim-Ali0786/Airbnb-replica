@@ -16,6 +16,7 @@ const listingRouter = require('./routes/listing.js');
 const userRouter = require('./routes/user.js');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const user = require('./models/user.js');
@@ -67,7 +68,6 @@ app.get("/",(req,res)=>{
  });
  
 app.use(session(sessionValues));
- const flash = require('connect-flash');
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
