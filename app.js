@@ -9,7 +9,6 @@ const expressError = require("./utils/ExpressError.js");
 const mongoose = require('mongoose');
 const path = require('path');
 const ejsMate = require('ejs-mate');
-// const MONGO_URL = 'mongodb://localhost:27017/WanderLust';
 const dbUrl = process.env.ATLASDBS_URL;
 const methodOverride = require("method-override");
 const reviewRouter = require('./routes/review.js');
