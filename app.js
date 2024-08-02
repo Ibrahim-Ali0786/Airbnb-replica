@@ -23,14 +23,14 @@ const user = require('./models/user.js');
 const store = MongoStore.create({
     mongoUrl:dbUrl,
     crypto: {
-        secret: "mysupersecretcodethatinevershare",
+        secret:process.env.SECRET,
       },
       touchAfter:24*3600,
 })
 const sessionValues = 
  {
  store,
- secret:"mysupersecretcodethatinevershare",
+ secret:process.env.SECRET,
  resave:false,
  saveUninitialized:true,
  cookie:
