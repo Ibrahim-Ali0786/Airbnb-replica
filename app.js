@@ -21,6 +21,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const user = require('./models/user.js');
 const store = MongoStore.create({
+    clientPromise: mongoClientPromise,
     mongoUrl:dbUrl,
     crypto: {
         secret:process.env.SECRET,
