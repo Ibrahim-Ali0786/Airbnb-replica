@@ -11,6 +11,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            
         }
         .icons-container{
             width: 68%;
@@ -130,7 +131,19 @@
      .dropdown-item:active{
         background-color: transparent;
      }
-    
+     @media screen and (max-width:1200px) {
+        .tax-holder{
+            display: none;
+        }
+        .icons-container{
+            width: 100%;
+        }
+     }
+     @media screen and (max-width:750px) {
+        .scroll-btn{
+            display: none;
+        }
+     }
     </style>
     <div id="filters">
         <div class="icons-container" style="display: flex; align-items: center;">
@@ -300,7 +313,9 @@
         let leftScroll = document.getElementsByClassName('scroll-btn-left');
         let filter = document.getElementsByClassName('filter-icons');
         filter[0].addEventListener('scroll',()=>{
-            if(filter[0].scrollLeft!=0)
+            if(window.innerWidth>750)
+            {
+                if(filter[0].scrollLeft!=0)
                 {
                     leftScroll[0].style.display='inline-flex'
                 }
@@ -308,6 +323,11 @@
                 {
                     leftScroll[0].style.display='none'
                 }
+            }
+            else
+            {
+                leftScroll[0].style.display='none';
+            }
         })
         rightScroll.addEventListener('click',()=>{
             console.log(filter[0].scrollLeft);

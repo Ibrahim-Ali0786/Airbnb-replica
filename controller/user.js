@@ -1,4 +1,4 @@
-const User = require("../models/user.js");
+const user = require("../models/user.js");
 module.exports.signUp =async (req,res)=>{
     res.render('users/signup.ejs');
 }
@@ -6,8 +6,8 @@ module.exports.signUpPost = async(req,res)=>{
     try
     {
     let {username,email,password} = req.body;
-    let newUser =  new User({email,username});
-    let registeredUser = await User.register(newUser,password);
+    let newUser =  new user({email,username});
+    let registeredUser = await user.register(newUser,password);
     req.login(registeredUser,(err)=>{
         if(err)
         {

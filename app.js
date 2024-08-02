@@ -9,17 +9,27 @@ const expressError = require("./utils/ExpressError.js");
 const mongoose = require('mongoose');
 const path = require('path');
 const ejsMate = require('ejs-mate');
-const MONGO_URL = 'mongodb://localhost:27017/WanderLust';
+// const MONGO_URL = 'mongodb://localhost:27017/WanderLust';
+const dbUrl = process.env.ATLASDBS_URL;
 const methodOverride = require("method-override");
 const reviewRouter = require('./routes/review.js');
 const listingRouter = require('./routes/listing.js');
 const userRouter = require('./routes/user.js');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const user = require('./models/user.js');
+const store = MongoStore.create({
+    mongoUrl:dbUrl,
+    crypto: {
+        secret: "mysupersecretcodethatinevershare",
+      },
+      touchAfter:24*3600,
+})
 const sessionValues = 
  {
+ store,
  secret:"mysupersecretcodethatinevershare",
  resave:false,
  saveUninitialized:true,
@@ -32,7 +42,7 @@ const sessionValues =
  }
 async function main()
 {
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
 main()
 .then((res)=>{
