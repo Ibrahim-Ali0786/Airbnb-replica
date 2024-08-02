@@ -20,6 +20,12 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const user = require('./models/user.js');
+const mongoClientPromise = new Promise((resolve) => {
+    mongoose.connection.on("connected", () => {
+        const client = mongoose.connection.getClient();
+        resolve(client);
+    });
+});
 const store = MongoStore.create({
     clientPromise: mongoClientPromise,
     mongoUrl:dbUrl,
