@@ -57,6 +57,21 @@ module.exports.delete = async(req,res,next)=>{
     res.redirect('/listings');
 }
 module.exports.new = async(req,res,next)=>{
+   if(!req.file)
+   {
+    let filename = "NEW LISTING"
+    let coordinate = await getcordinates(req.body.listing.location);
+    const newlisting = new listing(req.body.listing);
+    newlisting.owner = req.user._id;
+    newlisting.image.filename= filename;
+    newlisting.geometry.coordinate = coordinate;
+    await newlisting.save();
+    req.flash('success',"New post added");
+    res.redirect('/listings');
+    console.log(newlisting);
+   }
+   else
+   {
     let url = req.file.path;
     let filename = req.file.filename
     let coordinate = await getcordinates(req.body.listing.location);
@@ -68,6 +83,7 @@ module.exports.new = async(req,res,next)=>{
     req.flash('success',"New post added");
     res.redirect('/listings');
     console.log(newlisting);
+   }
   }
   
   module.exports.renderNewForm = async(req,res)=>{
